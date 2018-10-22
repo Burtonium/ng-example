@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-testdrive!');
+    expect(compiled.querySelector('h1').textContent).toContain('Testdrive of Angular\'s features');
   });
 });
