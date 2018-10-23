@@ -13,6 +13,4 @@ export class AppComponent {
   constructor(db: AngularFirestore) {
     this.posts = db.collection('posts').valueChanges();
   }
-  
-  title = 'Testdrive of Angular\'s features';
 }

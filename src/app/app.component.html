@@ -1,8 +1,24 @@
-<div style="text-align:center">
-  <h1 class="text-danger">
-    Welcome to {{ title }}!
+<div class="text-center container">
+  <h1 class="title mt-5">
+    Sample application built with
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <div class="row logos">
+    <div class="col-md-3 offset-md-3">
+      <img alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+      <h3>
+        Angular 7
+      </h3>
+    </div>
+    <div class="col-md-3">
+      <img alt="Firebase Logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgYmFzZVByb2ZpbGU9InRpbnkiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48Zz48cGF0aCBkPSJNMjk3LjAzNiwyMDUuNTc4bC0zNi4zMzQsMzMuODA5bC0zMy43MTYtNjguMDA1bDE3LjQ0Ni0zOS4xMDhjNC40MTYtNy44NCwxMS42MjEtNy44NTUsMTYuMDM3LDAgICBMMjk3LjAzNiwyMDUuNTc4eiIgZmlsbD0iI0ZGQTAwMCIvPjxwb2x5Z29uIGZpbGw9IiNGNTdGMTciIHBvaW50cz0iMjYwLjcwMiwyMzkuMzg2IDEyNC45MjQsMzY1LjY5NyAyMjYuOTg2LDE3MS4zODEgICIvPjxwYXRoIGQ9Ik0zMzYuNzc2LDE1My45MDFjNi40OTEtNi4yMzksMTMuMjAyLTQuMTExLDE0LjkxMiw0LjcyOWwzNS4zNDIsMjA1LjM3NUwyNjkuODczLDQzNC4yMiAgIGMtNC4xLDIuMjY0LTE0Ljk1NywzLjI0Ni0xNC45NTcsMy4yNDZzLTkuOTEtMS4xODUtMTMuNjg3LTMuMjgxTDEyNC45MiwzNjUuNjlMMzM2Ljc3NiwxNTMuOTAxeiIgZmlsbD0iI0ZGQ0EyOCIvPjxwYXRoIGQ9Ik0yMjYuOTg2LDE3MS4zODFMMTI0LjkyNCwzNjUuNjk3bDQ1LjQ2LTI4My45OThjMS42NzQtOC44NDcsNi43MS05LjY5OSwxMS4yMDMtMS44OUwyMjYuOTg2LDE3MS4zODF6IiBmaWxsPSIjRkZBMDAwIi8+PC9nPjwvc3ZnPg==">
+      <h3>
+        Firebase
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <app-post-form class="m-5" style="width:100%;"></app-post-form>
+  </div>
   <ul>
   <li class="text" *ngFor="let post of posts | async">
     {{post.content}}
