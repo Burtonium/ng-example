@@ -6,10 +6,18 @@ ul li {
   list-style-type: none;
 }
 
-.post-list li {
-  border-bottom: 1px solid #e6ecf0;
-  cursor: pointer;
-  padding: 15px;
+.post-list {
+    max-height: 640px;
+    overflow-y: auto;
+    
+    li {
+    border-bottom: 1px solid #e6ecf0;
+    cursor: pointer;
+    padding: 15px;
+  }
+}
+.color-info {
+  color: #5bc0de;
 }
 
 .hover-info {

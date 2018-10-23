@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
@@ -17,7 +18,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppComponent,
     PostFormComponent,
     PostsComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    LoadingSpinnerComponent
   ],
   imports: [
     NgbModule,
