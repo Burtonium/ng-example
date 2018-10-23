@@ -3,25 +3,50 @@
     <div *ngIf="username.errors.required">
       Username is required.
     </div>
-    <div *ngIf="username.errors.minlength">
-      Username must be at least 4 characters long.
+    <div *ngIf="username.errors.pattern">
+      Username must be alphanumeric.
+    </div>
+    <div *ngIf="username.errors.maxlength">
+      Username must be alphanumeric.
     </div>
   </div>
-  <form class="form-inline" #postForm="ngForm">
-    <div class="form-group">
+  <div *ngIf="username.valid && content.invalid && (content.dirty || content.touched)" class="text-danger mb-3">
+    <div *ngIf="content.errors.required">
+      You have to post something. 
+    </div>
+    <div *ngIf="content.errors.maxlength">
+      Posts can only be 140 characters long.
+    </div>
+  </div>
+  <form class="form-inline" #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
+    <div class="form-group box-shadow">
       <input type="text"
              [(ngModel)]="model.username"
-             class="form-control"
+             class="form-control "
              id="name"
              placeholder="Username"
              name="username"
-             minlength="4"
+             pattern="^$|^[A-Za-z0-9_]+"
+             maxlength="50"
              required
              #username="ngModel">
     </div>
-    <div class="form-group">
-      <input type="text" class="form-control content" id="content" [placeholder]="randomQuestion" name="content">
+    <div class="form-group box-shadow">
+      <input type="text"
+             class="form-control content "
+             [(ngModel)]="model.content"
+             id="content"
+             [placeholder]="randomQuestion"
+             name="content"
+             required
+             maxlength="140"
+             #content="ngModel"
+             autocomplete="off">
     </div>
-    <button type="submit" class="btn btn-info">Submit</button>
+    <div class="form-group box-shadow">
+      <button type="submit" class="btn btn-info box-shadow">
+        Post
+      </button>
+    </div>
   </form>
 </div>

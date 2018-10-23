@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Post } from '../post';
 
 @Component({
@@ -7,13 +8,21 @@ import { Post } from '../post';
   styleUrls: ['./post-form.component.scss']
 })
 
-export class PostFormComponent implements OnInit {
+export class PostFormComponent {
+  private postsCollection: AngularFirestoreCollection<Post>;
+  
+  constructor(private afs: AngularFirestore) {
+    this.postsCollection = afs.collection<Post>('posts');
+  }
+  
   model = new Post();
+  
   questions = [
     'How was your day?',
     'What brings you here?',
     'Who is your daddy and what does he do?',
-    'But how do you feel?'
+    'But how do you feel?',
+    'What did the fox say?'
   ];
   
   random = Math.random();
@@ -22,11 +31,14 @@ export class PostFormComponent implements OnInit {
     return this.questions[Math.floor(this.random * this.questions.length)];
   }
   
-  ngOnInit() {
+  onSubmit(form) {
+    if(form.valid) {
+      this.postsCollection.add({ 
+        username: this.model.username,
+        content: this.model.content,
+        createdAt: new Date() 
+      });
+      form.reset();
+    }
   }
-  
-  onSubmit() {
-    
-  }
-
 }

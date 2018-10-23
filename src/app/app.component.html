@@ -19,10 +19,8 @@
   <div class="row">
     <app-post-form class="m-5" style="width:100%;"></app-post-form>
   </div>
-  <ul>
-  <li class="text" *ngFor="let post of posts | async">
-    {{post.content}}
-  </li>
-</ul>
+  <div>
+    <app-posts></app-posts>
+  </div>
 </div>
 <router-outlet></router-outlet>

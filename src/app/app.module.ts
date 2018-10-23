@@ -8,18 +8,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { PostFormComponent } from './post-form/post-form.component';
+import { PostsComponent } from './posts/posts.component';
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostFormComponent
+    PostFormComponent,
+    PostsComponent,
+    TimeAgoPipe
   ],
   imports: [
     NgbModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

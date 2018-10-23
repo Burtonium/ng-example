@@ -1,0 +1,16 @@
+<ul class="post-list pl-5 pr-5">
+  <li class="text-left" *ngFor="let post of posts | async">
+    <div class="pull-left">
+      <a href="#">{{ post.username }}</a> 
+      <span class="timeago text-muted">
+        {{ post.createdAt.seconds * 1000 | timeAgo }}
+      </span>
+    </div>
+    <div class="pull-right">
+      <fa name="heart" class="hover-info faa-pulse animated-hover faa-parent"></fa>
+    </div>
+    <div class="clearfix"></div>
+    {{post.content}}
+  </li>
+</ul>
+
