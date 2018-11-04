@@ -14,6 +14,7 @@
   </li>
   <li>
     <app-loading-spinner *ngIf="page.loading | async"></app-loading-spinner>
+    <p *ngIf="page.done | async">Nothing else to display here</p>
   </li>
 </ul>
 

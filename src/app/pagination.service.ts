@@ -38,15 +38,28 @@ export class PaginationService {
     
     const first = this.afs.collection(this.query.path, ref => {
       return ref
-              .orderBy(this.query.field, 'asc')
+              .orderBy(this.query.field, 'desc')
               .limit(this.query.limit)
     })
 
     this.mapAndUpdate(first)
     
+    const byCreationTime = (obj1, obj2) => {
+        if (obj1.createdAt < obj2.createdAt) {
+            return 1;
+        }
+    
+        if (obj1.createdAt > obj2.createdAt) {
+            return -1;
+        }
+    
+        return 0;
+    };
     // Create the observable array for consumption in components
     this.data = this._data.asObservable()
-        .pipe(scan((acc, val) =>  acc.concat(val)))
+        .pipe(scan((acc, val) =>  {
+          return acc.concat(val).sort(byCreationTime);
+        }))
   }
 
  
@@ -56,11 +69,20 @@ export class PaginationService {
 
     const more = this.afs.collection(this.query.path, ref => {
       return ref
-              .orderBy(this.query.field, 'asc')
+              .orderBy(this.query.field, 'desc')
               .limit(this.query.limit)
               .startAfter(cursor)
     })
     this.mapAndUpdate(more)
+  }
+  
+  loadNew() {
+    const more = this.afs.collection(this.query.path, ref => {
+      return ref
+              .orderBy(this.query.field, 'desc')
+              .limit(1)
+    })
+    this.mapAndUpdate(more, true);
   }
 
 
@@ -84,7 +106,7 @@ export class PaginationService {
           const doc = snap.payload.doc
           return { ...data, doc }
         })
-
+        
         // update source with new values, done loading
         this._data.next(values)
         this._loading.next(false)

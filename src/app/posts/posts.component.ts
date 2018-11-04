@@ -23,4 +23,8 @@ export class PostsComponent implements OnInit {
       this.page.more()
     }
   }
+  
+  loadNewPost() {
+    this.page.loadNew();
+  }
 }

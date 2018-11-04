@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Post } from '../post';
 
@@ -17,6 +17,8 @@ export class PostFormComponent {
   
   model = new Post();
   
+  @Output() newPostEmitter = new EventEmitter<Post>();
+  
   questions = [
     'How was your day?',
     'What brings you here?',
@@ -31,14 +33,18 @@ export class PostFormComponent {
     return this.questions[Math.floor(this.random * this.questions.length)];
   }
   
-  onSubmit(form) {
+  async onSubmit(form) {
     if(form.valid) {
-      this.postsCollection.add({ 
+      const postPromise = this.postsCollection.add({ 
         username: this.model.username,
         content: this.model.content,
         createdAt: new Date() 
       });
       form.reset();
+      
+      const post = await postPromise;
+      const postData = new Post((await post.get()).data());
+      this.newPostEmitter.emit(postData);
     }
   }
 }
