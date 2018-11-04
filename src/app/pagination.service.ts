@@ -35,17 +35,15 @@ export class PaginationService {
       limit: 10,
       ...opts
     }
-    console.log(this.query);
+    
     const first = this.afs.collection(this.query.path, ref => {
       return ref
               .orderBy(this.query.field, 'asc')
               .limit(this.query.limit)
     })
-    
-    console.log(first);
 
     this.mapAndUpdate(first)
-    console.log(this._data);
+    
     // Create the observable array for consumption in components
     this.data = this._data.asObservable()
         .pipe(scan((acc, val) =>  acc.concat(val)))
