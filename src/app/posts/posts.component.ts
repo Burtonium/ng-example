@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { PaginationService } from '../pagination.service';
 import { Observable } from 'rxjs';
 import { Post } from '../post';
 
@@ -12,12 +12,15 @@ import { Post } from '../post';
 export class PostsComponent implements OnInit {
   posts: Observable<Post[]>;
   
-  constructor(db: AngularFirestore) {
-    this.posts = db.collection<Post>('posts', ref => ref.orderBy('createdAt', 'desc'))
-      .valueChanges();
-  }
+  constructor(public page: PaginationService) {}
   
   ngOnInit() {
-    
+    this.page.init('posts', 'createdAt');
+  }
+  
+  scrollHandler(e) {
+    if (e === 'bottom') {
+      this.page.more()
+    }
   }
 }

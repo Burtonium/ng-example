@@ -12,6 +12,8 @@ import { PostsComponent } from './posts/posts.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ScrollableDirective } from './scrollable.directive';
+import { PaginationService } from './pagination.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     PostFormComponent,
     PostsComponent,
     TimeAgoPipe,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    ScrollableDirective
   ],
   imports: [
     NgbModule,
@@ -29,7 +32,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     FormsModule,
     AngularFontAwesomeModule
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore, PaginationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

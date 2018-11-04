@@ -1,5 +1,5 @@
-<ul class="post-list pl-5 pr-5">
-  <li class="text-left" *ngFor="let post of posts | async">
+<ul class="post-list pl-5 pr-5"  scrollable (scrollPosition)="scrollHandler($event)">
+  <li class="text-left" *ngFor="let post of page.data | async">
     <div class="pull-left">
       <a href="#">{{ post.username }}</a> 
       <span class="timeago text-muted">
@@ -13,7 +13,7 @@
     {{post.content}}
   </li>
   <li>
-    <app-loading-spinner></app-loading-spinner>
+    <app-loading-spinner *ngIf="page.loading | async"></app-loading-spinner>
   </li>
 </ul>
 
