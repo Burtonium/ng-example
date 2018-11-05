@@ -82,7 +82,7 @@ export class PaginationService {
               .orderBy(this.query.field, 'desc')
               .limit(1)
     })
-    this.mapAndUpdate(more, true);
+    this.mapAndUpdate(more);
   }
 
 
